@@ -1,89 +1,60 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    h1 {
-      text-align: center;
-    }
-    .quiz-container {
-      max-width: 600px;
-      margin: auto;
-    }
-    .question {
-      margin-bottom: 10px;
-    }
-    .options {
-      list-style-type: none;
-      padding: 0;
-    }
-    .options li {
-      margin-bottom: 5px;
-    }
-    button {
-      display: block;
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Информация о HTML, CSS и командах HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #000;
+            color: #FFF;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        code {
+            background-color: #333;
+            color: #FFF;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="quiz-container">
-  <h1>Simple Quiz</h1>
+    <h1>Программирование на HTML и CSS</h1>
 
-  <div class="question" id="question1">
-    <p>1. What is the capital of France?</p>
-    <ul class="options">
-      <li><input type="radio" name="q1" value="paris"> Paris</li>
-      <li><input type="radio" name="q1" value="berlin"> Berlin</li>
-      <li><input type="radio" name="q1" value="madrid"> Madrid</li>
+    <h2>HTML (HyperText Markup Language)</h2>
+    <p>HTML - это язык разметки, который используется для создания структуры веб-страниц. Он состоит из различных тегов, каждый из которых выполняет определенную функцию. HTML определяет заголовки, абзацы, изображения, ссылки и многое другое.</p>
+
+    <h2>CSS (Cascading Style Sheets)</h2>
+    <p>CSS - это язык стилей, который определяет внешний вид и оформление веб-страниц. С помощью CSS можно управлять цветами, шрифтами, отступами, рамками и другими стилями элементов HTML. Он позволяет создавать красивые и структурированные дизайны.</p>
+
+    <h2>Команды HTML</h2>
+    <ul>
+        <li><code>&lt;html&gt;</code>: Определяет начало и конец HTML-документа.</li>
+        <li><code>&lt;head&gt;</code>: Содержит метаинформацию о документе, такую как заголовок, метатеги и ссылки на внешние файлы стилей.</li>
+        <li><code>&lt;title&gt;</code>: Задает заголовок документа, отображаемый в строке заголовка браузера.</li>
+        <li><code>&lt;body&gt;</code>: Содержит основное содержимое веб-страницы, такое как текст, изображения и другие элементы.</li>
+        <li><code>&lt;p&gt;</code>: Создает абзац текста.</li>
+        <li><code>&lt;a href="URL"&gt;</code>: Создает гиперссылку.</li>
+        <li><code>&lt;img src="source" alt="description"&gt;</code>: Вставляет изображение с указанием источника и альтернативного текста.</li>
     </ul>
-  </div>
 
-  <div class="question" id="question2">
-    <p>2. What is the largest mammal?</p>
-    <ul class="options">
-      <li><input type="radio" name="q2" value="elephant"> Elephant</li>
-      <li><input type="radio" name="q2" value="bluewhale"> Blue Whale</li>
-      <li><input type="radio" name="q2" value="giraffe"> Giraffe</li>
-    </ul>
-  </div>
-
-  <button onclick="calculateScore()">Submit</button>
-  <div id="result"></div>
-</div>
-
-<script>
-  function calculateScore() {
-    const answers = {
-      question1: "paris",
-      question2: "bluewhale"
-    };
-
-    let score = 0;
-
-    for (const questionId in answers) {
-      const selectedOption = document.querySelector(`input[name=${questionId}]:checked`);
-      if (selectedOption) {
-        const userAnswer = selectedOption.value;
-        if (userAnswer === answers[questionId]) {
-          score++;
-        }
-      }
-    }
-
-    const resultElement = document.getElementById("result");
-    resultElement.innerHTML = `<p>Your score: ${score}/2</p>`;
-
-    let grade = Math.ceil((score / 2) * 5);
-    resultElement.innerHTML += `<p>Your grade: ${grade}/5</p>`;
-  }
-</script>
+    <p>Начните использовать эти команды HTML для создания собственных веб-страниц и погружения в мир веб-разработки!</p>
 
 </body>
 </html>
