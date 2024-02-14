@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: auto;
+    }
+    .question {
+      margin-bottom: 10px;
+    }
+    .options {
+      list-style-type: none;
+      padding: 0;
+    }
+    .options li {
+      margin-bottom: 5px;
+    }
+    button {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Simple Quiz</h1>
+
+  <div class="question" id="question1">
+    <p>1. What is the capital of France?</p>
+    <ul class="options">
+      <li><input type="radio" name="q1" value="paris"> Paris</li>
+      <li><input type="radio" name="q1" value="berlin"> Berlin</li>
+      <li><input type="radio" name="q1" value="madrid"> Madrid</li>
+    </ul>
+  </div>
+
+  <div class="question" id="question2">
+    <p>2. What is the largest mammal?</p>
+    <ul class="options">
+      <li><input type="radio" name="q2" value="elephant"> Elephant</li>
+      <li><input type="radio" name="q2" value="bluewhale"> Blue Whale</li>
+      <li><input type="radio" name="q2" value="giraffe"> Giraffe</li>
+    </ul>
+  </div>
+
+  <button onclick="calculateScore()">Submit</button>
+  <div id="result"></div>
+</div>
+
+<script>
+  function calculateScore() {
+    const answers = {
+      question1: "paris",
+      question2: "bluewhale"
+    };
+
+    let score = 0;
+
+    for (const questionId in answers) {
+      const selectedOption = document.querySelector(`input[name=${questionId}]:checked`);
+      if (selectedOption) {
+        const userAnswer = selectedOption.value;
+        if (userAnswer === answers[questionId]) {
+          score++;
+        }
+      }
+    }
+
+    const resultElement = document.getElementById("result");
+    resultElement.innerHTML = `<p>Your score: ${score}/2</p>`;
+
+    let grade = Math.ceil((score / 2) * 5);
+    resultElement.innerHTML += `<p>Your grade: ${grade}/5</p>`;
+  }
+</script>
+
+</body>
+</html>
