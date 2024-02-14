@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+<script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Информация о HTML, CSS и командах HTML и CSS</title>
@@ -102,7 +104,60 @@
             <li>Создание адаптивных и отзывчивых веб-страниц стало важным требованием, и CSS предоставляет средства для легкого адаптирования дизайна под разные устройства.</li>
         </ul>
 
-        <p>Начните использовать эти команды HTML и CSS для создания собственных веб-страниц и погружения в мир веб-разработки!</p>
+            class Question:
+        def __init__(self, question_text, options, correct_option):
+            self.question_text = question_text
+            self.options = options
+            self.correct_option = correct_option
+    
+        def is_correct(self, user_answer):
+            return user_answer.lower() == self.correct_option.lower()
+    
+    
+    class Quiz:
+        def __init__(self, questions):
+            self.questions = questions
+            self.score = 0
+    
+        def run_quiz(self):
+            for index, question in enumerate(self.questions, start=1):
+                print(f"\nQuestion {index}: {question.question_text}")
+                for i, option in enumerate(question.options, start=1):
+                    print(f"{i}. {option}")
+    
+                user_answer = input("Your answer (enter the number): ")
+                if question.is_correct(user_answer):
+                    print("Correct!")
+                    self.score += 1
+                else:
+                    print(f"Wrong! The correct answer is {question.correct_option}")
+    
+            print(f"\nТвой счет: {self.score}/{len(self.questions)}")
+    
+    
+    # Define your questions here
+    questions = [
+        Question("Что означает аббревиатура HTML?", ["Гипертекстовый язык разметки", "Гиперссылка и текстовый язык разметки", "Язык высокого уровня разметки"], "1"),
+        Question("Какой тег используется для создания гиперссылки в HTML?", ["<a>", "<link>", "<href>"], "1"),
+        Question("Что означает аббревиатура CSS?", ["Таблица стилей счетчика", "Компьютерный стилевой лист", "Каскадные таблицы стилей"], "3"),
+        Question("Какое свойство используется для изменения цвета фона в CSS?", ["background-color", "color", "bgcolor"], "1"),
+        Question("В HTML, какой тег используется для создания упорядоченного списка?", ["<ol>", "<ul>", "<li>"], "1"),
+        Question("Какова цель свойства CSS 'float'?", ["Контролирует выравнивание элемента", "Перемещает элемент влево или вправо", "Изменяет стиль шрифта"], "2"),
+        Question("Какой HTML-тег используется для вставки изображения на веб-страницу?", ["<img>", "<image>", "<picture>"], "1"),
+        Question("Каково значение свойства display по умолчанию для элемента <div> в CSS?", ["block", "inline", "flex"], "1"),
+        Question("Какое свойство CSS используется для добавления скругленных углов к элементу?", ["border-radius", "corner-radius", "rounded-corner"], "1"),
+        Question("В CSS, что контролирует свойство 'z-index'?", ["Позицию элемента вдоль оси z", "Ширину элемента", "Прозрачность элемента"], "1"),
+        Question("Какой HTML-тег используется для создания формы ввода данных пользователя?", ["<form>", "<input>", "<select>"], "1"),
+        Question("Какое свойство CSS используется для изменения размера шрифта?", ["font-size", "text-size", "font-style"], "1"),
+        Question("Как задать внешний отступ у элемента в CSS?", ["margin", "padding", "spacing"], "1"),
+        Question("Какой тег HTML используется для создания ячейки таблицы?", ["<td>", "<th>", "<tr>"], "1"),
+        Question("Какое свойство CSS используется для управления положением элемента?", ["position", "align", "float"], "1"),
+        Question("Какое свойство CSS задает цвет текста?", ["color", "text-color", "font-color"], "1"),
+    ]
+    
+    # Create and run the quiz
+    quiz = Quiz(questions)
+    quiz.run_quiz()
 
     </div>
 
