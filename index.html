@@ -38,8 +38,8 @@
         
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML и CSS вопросы</title>
-
+    <title>Тест по HTML и CSS</title>
+    <style>
         #quiz-container {
             max-width: 600px;
             margin: 0 auto;
@@ -58,6 +58,9 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+        }
+        label {
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -134,32 +137,68 @@
         <div id="quiz"></div>
         <button onclick="checkAnswers()">Проверить ответы</button>
     </div>
-
+    
+    <div id="quiz-container">
+        <h1>Тест по HTML и CSS</h1>
+        <div id="quiz"></div>
+        <button onclick="checkAnswers()">Проверить ответы</button>
+    </div>
+    
     <script>
         const questions = [
             {
-                questionText: "Что означает аббревиатура HTML?",
-                options: ["Гипертекстовый язык разметки", "Гиперссылка и текстовый язык разметки", "Язык высокого уровня разметки"],
+                questionText: "Тег для определения гиперссылки на веб-странице?",
+                options: ["a href", "link", "href"],
                 correctOption: "0"
             },
             {
-                questionText: "Какой тег используется для создания гиперссылки в HTML?",
-                options: ["<a>", "<link>", "<href>"],
+                questionText: "Тег, который создаёт ячейку-заголовок таблицы?",
+                options: ["<a>", "<th>", "<td>"],
+                correctOption: "1"
+            },
+            {
+                questionText: "Атрибут, который задает ширину?",
+                options: ["width", "size", "length"],
                 correctOption: "0"
             },
             {
-                questionText: "Что означает аббревиатура CSS?",
-                options: ["Таблица стилей счетчика", "Компьютерный стилевой лист", "Каскадные таблицы стилей"],
+                questionText: "Тег, который создаёт кнопку?",
+                options: ["<button>", "<input>", "<a>"],
+                correctOption: "0"
+            },
+            {
+                questionText: "Тег, который создаёт контейнер?",
+                options: ["<div>", "<container>", "<block>"],
+                correctOption: "0"
+            },
+            {
+                questionText: "Тег, использующийся для навигации по сайту?",
+                options: ["<nav>", "<navigate>", "<a>"],
+                correctOption: "0"
+            },
+            {
+                questionText: "Тег для создания самого маленького заголовка?",
+                options: ["<h1>", "<h6>", "<small>"],
                 correctOption: "2"
             },
             {
-                questionText: "Какое свойство используется для изменения цвета фона в CSS?",
-                options: ["background-color", "color", "bgcolor"],
+                questionText: "Тег для создания самого большого заголовка?",
+                options: ["<h1>", "<h6>", "<big>"],
                 correctOption: "0"
             },
             {
-                questionText: "В HTML, какой тег используется для создания упорядоченного списка?",
-                options: ["<ol>", "<ul>", "<li>"],
+                questionText: "Тег для начала и конца веб-страницы?",
+                options: ["<html>", "<head>", "<body>"],
+                correctOption: "0"
+            },
+            {
+                questionText: "Тег строки (ряда) таблицы?",
+                options: ["<tr>", "<td>", "<th>"],
+                correctOption: "0"
+            },
+            {
+                questionText: "Тег обычной ячейки таблицы?",
+                options: ["<td>", "<tr>", "<th>"],
                 correctOption: "0"
             },
             // Add more questions as needed
@@ -177,7 +216,7 @@
                 <div>
                     ${currentQuestion.options.map((option, index) => `
                         <input type="radio" name="answer" value="${index}" id="option${index}">
-                        <label for="option${index}">${option}</label><br>
+                        <label for="option${index}">${option}</label>
                     `).join('')}
                 </div>
             `;
@@ -210,7 +249,6 @@
         // Initial display
         displayQuestion();
     </script>
-
 
 </body>
 </html>
