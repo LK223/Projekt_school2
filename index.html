@@ -132,123 +132,117 @@
         </ul>
     </div>
 
-    <div id="quiz-container">
+    <div id="container">
         <h1>Тест по HTML и CSS</h1>
         <div id="quiz"></div>
         <button onclick="checkAnswers()">Проверить ответы</button>
-    </div>
     
-    <div id="quiz-container">
-        <h1>Тест по HTML и CSS</h1>
-        <div id="quiz"></div>
-        <button onclick="checkAnswers()">Проверить ответы</button>
-    </div>
+  
+        <script>
+            const questions = [
+                {
+                    questionText: "Тег для определения гиперссылки на веб-странице?",
+                    options: ["a href", "link", "href"],
+                    correctOption: "0"
+                },
+                {
+                    questionText: "Тег, который создаёт ячейку-заголовок таблицы?",
+                    options: ["<a>", "<th>", "<td>"],
+                    correctOption: "1"
+                },
+                {
+                    questionText: "Атрибут, который задает ширину?",
+                    options: ["width", "size", "length"],
+                    correctOption: "0"
+                },
+                {
+                    questionText: "Тег, который создаёт кнопку?",
+                    options: ["<button>", "<input>", "<a>"],
+                    correctOption: "0"
+                },
+                {
+                    questionText: "Тег, который создаёт контейнер?",
+                    options: ["<div>", "<container>", "<block>"],
+                    correctOption: "0"
+                },
+                {
+                    questionText: "Тег, использующийся для навигации по сайту?",
+                    options: ["<nav>", "<navigate>", "<a>"],
+                    correctOption: "0"
+                },
+                {
+                    questionText: "Тег для создания самого маленького заголовка?",
+                    options: ["<h1>", "<h6>", "<small>"],
+                    correctOption: "2"
+                },
+                {
+                    questionText: "Тег для создания самого большого заголовка?",
+                    options: ["<h1>", "<h6>", "<big>"],
+                    correctOption: "0"
+                },
+                {
+                    questionText: "Тег для начала и конца веб-страницы?",
+                    options: ["<html>", "<head>", "<body>"],
+                    correctOption: "0"
+                },
+                {
+                    questionText: "Тег строки (ряда) таблицы?",
+                    options: ["<tr>", "<td>", "<th>"],
+                    correctOption: "0"
+                },
+                {
+                    questionText: "Тег обычной ячейки таблицы?",
+                    options: ["<td>", "<tr>", "<th>"],
+                    correctOption: "0"
+                },
+                // Add more questions as needed
+            ];
     
-    <script>
-        const questions = [
-            {
-                questionText: "Тег для определения гиперссылки на веб-странице?",
-                options: ["a href", "link", "href"],
-                correctOption: "0"
-            },
-            {
-                questionText: "Тег, который создаёт ячейку-заголовок таблицы?",
-                options: ["<a>", "<th>", "<td>"],
-                correctOption: "1"
-            },
-            {
-                questionText: "Атрибут, который задает ширину?",
-                options: ["width", "size", "length"],
-                correctOption: "0"
-            },
-            {
-                questionText: "Тег, который создаёт кнопку?",
-                options: ["<button>", "<input>", "<a>"],
-                correctOption: "0"
-            },
-            {
-                questionText: "Тег, который создаёт контейнер?",
-                options: ["<div>", "<container>", "<block>"],
-                correctOption: "0"
-            },
-            {
-                questionText: "Тег, использующийся для навигации по сайту?",
-                options: ["<nav>", "<navigate>", "<a>"],
-                correctOption: "0"
-            },
-            {
-                questionText: "Тег для создания самого маленького заголовка?",
-                options: ["<h1>", "<h6>", "<small>"],
-                correctOption: "2"
-            },
-            {
-                questionText: "Тег для создания самого большого заголовка?",
-                options: ["<h1>", "<h6>", "<big>"],
-                correctOption: "0"
-            },
-            {
-                questionText: "Тег для начала и конца веб-страницы?",
-                options: ["<html>", "<head>", "<body>"],
-                correctOption: "0"
-            },
-            {
-                questionText: "Тег строки (ряда) таблицы?",
-                options: ["<tr>", "<td>", "<th>"],
-                correctOption: "0"
-            },
-            {
-                questionText: "Тег обычной ячейки таблицы?",
-                options: ["<td>", "<tr>", "<th>"],
-                correctOption: "0"
-            },
-            // Add more questions as needed
-        ];
-
-        let currentQuestionIndex = 0;
-        let userAnswers = [];
-
-        function displayQuestion() {
-            const quizContainer = document.getElementById("quiz");
-            const currentQuestion = questions[currentQuestionIndex];
-
-            quizContainer.innerHTML = `
-                <div class="question">${currentQuestion.questionText}</div>
-                <div>
-                    ${currentQuestion.options.map((option, index) => `
-                        <input type="radio" name="answer" value="${index}" id="option${index}">
-                        <label for="option${index}">${option}</label>
-                    `).join('')}
-                </div>
-            `;
-        }
-
-        function checkAnswers() {
-            const selectedOption = document.querySelector('input[name="answer"]:checked');
-
-            if (!selectedOption) {
-                alert("Пожалуйста, выберите ответ перед проверкой.");
-                return;
+            let currentQuestionIndex = 0;
+            let userAnswers = [];
+    
+            function displayQuestion() {
+                const quizContainer = document.getElementById("quiz");
+                const currentQuestion = questions[currentQuestionIndex];
+    
+                quizContainer.innerHTML = `
+                    <div class="question">${currentQuestion.questionText}</div>
+                    <div>
+                        ${currentQuestion.options.map((option, index) => `
+                            <input type="radio" name="answer" value="${index}" id="option${index}">
+                            <label for="option${index}">${option}</label>
+                        `).join('')}
+                    </div>
+                `;
             }
-
-            userAnswers.push(selectedOption.value);
-            currentQuestionIndex++;
-
-            if (currentQuestionIndex < questions.length) {
-                displayQuestion();
-            } else {
-                displayResult();
+    
+            function checkAnswers() {
+                const selectedOption = document.querySelector('input[name="answer"]:checked');
+    
+                if (!selectedOption) {
+                    alert("Пожалуйста, выберите ответ перед проверкой.");
+                    return;
+                }
+    
+                userAnswers.push(selectedOption.value);
+                currentQuestionIndex++;
+    
+                if (currentQuestionIndex < questions.length) {
+                    displayQuestion();
+                } else {
+                    displayResult();
+                }
             }
-        }
-
-        function displayResult() {
-            const correctAnswers = questions.filter((question, index) => question.correctOption === userAnswers[index]);
-
-            alert(`Результат теста: ${correctAnswers.length} из ${questions.length} правильных ответов.`);
-        }
-
-        // Initial display
-        displayQuestion();
-    </script>
-
+    
+            function displayResult() {
+                const correctAnswers = questions.filter((question, index) => question.correctOption === userAnswers[index]);
+    
+                alert(`Результат теста: ${correctAnswers.length} из ${questions.length} правильных ответов.`);
+            }
+    
+            // Initial display
+            displayQuestion();
+        </script>
+    </div>
 </body>
 </html>
