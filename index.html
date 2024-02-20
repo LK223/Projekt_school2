@@ -59,6 +59,45 @@
         label {
             margin-right: 10px;
         }
+                .highlight {
+            background-color: yellow;
+        }
+
+        #important {
+            font-weight: bold;
+            color: red;
+        }
+
+        [data-custom="example"] {
+            font-style: italic;
+        }
+
+        article p {
+            margin-bottom: 10px;
+        }
+
+        nav > ul {
+            list-style-type: none;
+            padding: 0;
+            background-color: #007BFF;
+        }
+
+        nav > ul > li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        h2 + p {
+            font-size: 18px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        li:nth-child(odd) {
+            background-color: #f8f9fa;
+        }
     </style>
 </head>
 <body>
@@ -116,15 +155,15 @@
 
     <ul>
         <li><code>*</code>: Универсальный селектор - Выбирает все элементы на странице.</li>
-        <li><code>элемент</code>: Типовой селектор - Выбирает элементы на основе их HTML-тега.</li>
-        <li><code>.класс</code>: Селектор класса - Выбирает элементы с определенным атрибутом класса.</li>
-        <li><code>#идентификатор</code>: Селектор ID - Выбирает один элемент с определенным атрибутом ID.</li>
-        <li><code>[атрибут=значение]</code>: Селектор атрибута - Выбирает элементы с определенным атрибутом и значением.</li>
-        <li><code>предок потомок</code>: Селектор потомка - Выбирает всех потомков указанного предка.</li>
-        <li><code>родитель > ребенок</code>: Селектор ребенка - Выбирает прямых потомков указанного родителя.</li>
-        <li><code>пред. + след</code>: Селектор соседа - Выбирает элемент, непосредственно предшествующий указанному элементу.</li>
-        <li><code>:псевдо-класс</code>: Псевдо-класс - Выбирает элементы на основе их состояния или положения.</li>
-        <li><code>::псевдо-элемент</code>: Псевдо-элемент - Выбирает конкретную часть элемента.</li>
+        <li><code>div</code>: Типовой селектор - Выбирает все элементы <code>&lt;div&gt;</code>.</li>
+        <li><code>.highlight</code>: Селектор класса - Выбирает элементы с классом <code>highlight</code>.</li>
+        <li><code>#important</code>: Селектор ID - Выбирает элемент с ID <code>important</code>.</li>
+        <li><code>[data-custom="example"]</code>: Селектор атрибута - Выбирает элементы с атрибутом <code>data-custom="example"</code>.</li>
+        <li><code>article p</code>: Селектор потомка - Выбирает все <code>&lt;p&gt;</code> внутри элементов <code>&lt;article&gt;</code>.</li>
+        <li><code>nav > ul</code>: Селектор ребенка - Выбирает прямые потомки <code>&lt;ul&gt;</code> внутри элементов <code>&lt;nav&gt;</code>.</li>
+        <li><code>h2 + p</code>: Селектор соседа - Выбирает <code>&lt;p&gt;</code>, следующий непосредственно после <code>&lt;h2&gt;</code>.</li>
+        <li><code>a:hover</code>: Псевдо-класс - Стилизует ссылки при наведении на них курсора.</li>
+        <li><code>li:nth-child(odd)</code>: Псевдо-класс - Стилизует нечетные элементы списка.</li>
     </ul>
 
     <p>Эти селекторы могут быть объединены и использованы для применения стилей к конкретным элементам или группам элементов на веб-странице.</p>
